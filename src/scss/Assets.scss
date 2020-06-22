@@ -1,0 +1,99 @@
+//  _____       _   _         _      _____     _       _
+// |  _  |_____| |_|_|___ ___| |_   | __  |___| |_ ___| |_
+// |     |     | . | | -_|   |  _|  |    -| . | . | . |  _|
+// |__|__|_|_|_|___|_|___|_|_|_|    |__|__|___|___|___|_|
+// ________________________________________________________
+// #######################################################
+//
+// @Author: ambientrobot
+// @Date:   2019-02-05T12:54:11+01:00
+// @Email:  contact@ambientrobot.com
+// @Project: ambientrobot
+// @Filename: Assets.scss
+// @Last modified by:
+// @Last modified time: 2020-06-18T19:45:49+02:00
+// @Copyright: Ambient Robot 2019
+// ________________________________________________________
+// #######################################################
+//--| 1. Imports
+//--| 2. Fonts
+//--| 3. Variables
+//--| 4. Colors
+//--| 5. Mixins
+//--| 6. Functions
+//--| 7. Others
+// ________________________________________________________
+// #######################################################
+
+//--| 1. Imports
+
+//--| 2. Fonts
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i');
+
+//--| 3. Variables
+$-browser-context:          16;
+$-width-context:            1920;
+$-height-context:           1080;
+$-loader-delay:							4s;
+$-loader-gradient-time:			3s;
+
+
+//--| 4. Colors
+$-ambient-robot-white-1:    					rgba(255, 255, 255, 0.9);
+$-ambient-robot-white-1-alpha-5:    	rgba(255, 255, 255, 0.5);
+$-ambient-robot-black-1:    					#000000;
+$-ambient-robot-black-2:    					#29252F;
+$-ambient-robot-chocolate-1:					#2D2A2B;
+$-ambient-robot-chocolate-1-alpha-3:	rgba(45, 42, 43, 0.3);
+$-ambient-robot-alpha-1:							rgba(0, 0, 0, 0);
+
+
+//--| 5. Mixins
+
+//----| Vertical align helper
+@mixin verticalAlign() {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+//----| Horizontal align helper
+@mixin horizontalAlign() {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+//----| Vertical align center helper
+@mixin verticalCenterAlign() {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+//----| Text align helper
+@mixin textAlign($side) {
+	text-align: $side;
+}
+
+//--| 6. Functions
+
+//----| PX to REM converter
+@function rem($pixels, $context: $-browser-context) {
+	@return #{$pixels/$context}rem;
+}
+
+//----| PX to vw converter
+@function vw($target, $context: $-width-context) {
+  $vw-context: ($context*.01) * 1px;
+  @return (($target * 1px)/$vw-context) * 1vw;
+}
+
+//----| PX to vh converter
+@function vh($target, $context: $-height-context) {
+  $vh-context: ($context*.01) * 1px;
+  @return (($target * 1px)/$vh-context) * 1vh;
+}
+
+//--| 7. Others

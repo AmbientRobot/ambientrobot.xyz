@@ -1,0 +1,109 @@
+//  _____       _   _         _      _____     _       _
+// |  _  |_____| |_|_|___ ___| |_   | __  |___| |_ ___| |_
+// |     |     | . | | -_|   |  _|  |    -| . | . | . |  _|
+// |__|__|_|_|_|___|_|___|_|_|_|    |__|__|___|___|___|_|
+// ________________________________________________________
+// #######################################################
+//
+// @Author: ambientrobot
+// @Date:   2019-01-27T16:52:13+01:00
+// @Email:  contact@ambientrobot.com
+// @Project: ambientrobot
+// @Filename: Home.scss
+// @Last modified by:
+// @Last modified time: 2020-06-20T14:53:24+02:00
+// @Copyright: Ambient Robot 2019
+// ________________________________________________________
+// #######################################################
+//--| 1. Imports
+//--| 2. Document
+//--| 3. Fonts
+//--| 4. Main
+//--| 5.
+//--| 6.
+//--| 7.
+//--| 8.
+//--| 9.
+//--| 10.
+// ________________________________________________________
+// #######################################################
+
+//--| 1. Imports
+@import 'Assets';
+
+//--| 2. Document
+
+//--| 3. Fonts
+
+//--| 4. Main
+$SVG-width:   125rem;
+$SVG-height:  60rem;
+
+.Home {
+  .HomeContainer {
+    width: 100vw;
+    height: 100vh;
+    .HomeSquareContainer {
+      width: $SVG-width;
+      height: $SVG-height;
+      @include verticalCenterAlign();
+      .HomeSquareSVG {
+        width: 100%;
+        height: 100%;
+        .HomeSquare {
+          width: 100%;
+          height: 100%;
+          fill: $-ambient-robot-chocolate-1-alpha-3;
+          stroke: $-ambient-robot-white-1;
+          stroke-width: 0.25rem;
+          stroke-dasharray: ($SVG-width+$SVG-height)*2;
+          stroke-dashoffset: ($SVG-width+$SVG-height)*2;
+          fill-opacity: 0;
+          transform-origin: center;
+        }
+      }
+      section {
+        width: 100%;
+        height: 100%;
+        @include verticalCenterAlign();
+        .HomeWelcome {
+          span {
+            font-size: 5rem;
+            color: $-ambient-robot-white-1;
+          }
+          .typed-cursor {
+            visibility: hidden;
+          }
+          @include verticalCenterAlign();
+        }
+        article.AboutMe {
+          opacity: 0;
+          .row {
+            margin-bottom: 1rem;
+          }
+          .ProfilePhotoContainer {
+            text-align: center;
+            .ProfilePhoto {
+              width: 10rem;
+            }
+          }
+          .FontAwesomeIcon {
+            font-size: 1.5rem;
+            color: $-ambient-robot-white-1;
+          }
+          p {
+            font-size: 1.5rem;
+            margin-bottom: 0;
+          }
+          button {
+            font-size: 1.5rem;
+            color: $-ambient-robot-black-1;
+            background-color: $-ambient-robot-white-1;
+            border-color: $-ambient-robot-white-1;
+          }
+          @include verticalCenterAlign();
+        }
+      }
+    }
+  }
+}

@@ -6,12 +6,12 @@
 // #######################################################
 //
 // @Author: ambientrobot
-// @Date:   2019-01-27T16:52:13+01:00
+// @Date:   2019-02-05T12:51:13+01:00
 // @Email:  contact@ambientrobot.com
 // @Project: ambientrobot
-// @Filename: index.scss
+// @Filename: Loader.scss
 // @Last modified by:
-// @Last modified time: 2020-06-20T14:53:06+02:00
+// @Last modified time: 2020-06-20T14:53:27+02:00
 // @Copyright: Ambient Robot 2019
 // ________________________________________________________
 // #######################################################
@@ -32,38 +32,24 @@
 @import 'Assets';
 
 //--| 2. Document
-html {
-  font-size: 0.75vw;
-}
 
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Roboto', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
 //--| 3. Fonts
-p, a, h1, h2, h3, h4, h5, label, span {
-  &:not(a){
-    cursor: default;
-  }
-}
-
-a, a:hover, a:focus, a:active, a:visited {
-  text-decoration: none;
-}
-
-.uppercase {
-  text-transform: uppercase;
-}
-
-.capitalize {
-  text-transform: capitalize;
+h1 {
+  margin: 0;
 }
 
 //--| 4. Main
-.hidden {
-  display: none;
+.Loader {
+  @include verticalCenterAlign();
+  background-color: $-ambient-robot-alpha-1;
+  .LoaderContainer {
+    .LoaderLogo {
+      path {
+        stroke-dasharray: 491;
+        stroke-dashoffset: 491;
+        fill-opacity: 0;
+      }
+    }
+  }
 }

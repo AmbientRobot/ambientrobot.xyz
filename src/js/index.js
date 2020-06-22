@@ -11,20 +11,17 @@
  * @Email:  contact@ambientrobot.com
  * @Project: ambientrobot
  * @Filename: index.js
- * @Last modified by:   ambientrobot
- * @Last modified time: 2019-01-27T17:27:56+01:00
+ * @Last modified by:
+ * @Last modified time: 2020-06-20T14:52:39+02:00
  * @Copyright: Ambient Robot 2019
+ * ________________________________________________________
+ * #######################################################
  */
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.scss';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+// import {paths} from 'js/variables/paths';
+import 'scss/index.scss';
+import App from './containers/App/App';
 
 ReactDOM.render(<App />, document.getElementById('root'));
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();

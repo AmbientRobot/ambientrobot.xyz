@@ -1,32 +1,70 @@
+//  _____       _   _         _      _____     _       _
+// |  _  |_____| |_|_|___ ___| |_   | __  |___| |_ ___| |_
+// |     |     | . | | -_|   |  _|  |    -| . | . | . |  _|
+// |__|__|_|_|_|___|_|___|_|_|_|    |__|__|___|___|___|_|
+// ________________________________________________________
+// #######################################################
+//
+// @Author: ambientrobot
+// @Date:   2019-01-27T16:52:13+01:00
+// @Email:  contact@ambientrobot.com
+// @Project: ambientrobot
+// @Filename: App.scss
+// @Last modified by:
+// @Last modified time: 2020-06-20T14:53:18+02:00
+// @Copyright: Ambient Robot 2019
+// ________________________________________________________
+// #######################################################
+//--| 1. Imports
+//--| 2. Document
+//--| 3. Fonts
+//--| 4. Main
+//--| 5.
+//--| 6.
+//--| 7.
+//--| 8.
+//--| 9.
+//--| 10.
+// ________________________________________________________
+// #######################################################
+
+//--| 1. Imports
+@import 'Assets';
+@import "~bootstrap/scss/bootstrap";
+
+//--| 2. Document
+
+//--| 3. Fonts
+h1, h2, h3, p {
+  color: $-ambient-robot-white-1;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1rem;
+}
+
+//--| 4. Main
 .App {
-  text-align: center;
+
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+
 }
 
 .App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }

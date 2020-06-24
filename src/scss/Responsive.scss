@@ -9,9 +9,9 @@
 // @Date:   2019-01-27T16:52:13+01:00
 // @Email:  contact@ambientrobot.com
 // @Project: ambientrobot
-// @Filename: Menu.scss
+// @Filename: Responsive.scss
 // @Last modified by:
-// @Last modified time: 2020-06-24T11:32:14+02:00
+// @Last modified time: 2020-06-24T11:54:57+02:00
 // @Copyright: Ambient Robot 2020
 // ________________________________________________________
 // #######################################################
@@ -34,13 +34,20 @@
 //--| 2. Document
 
 //--| 3. Fonts
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+p {
+  font-size: 2rem;
+}
 
 //--| 4. Main
-.Menu {
-  position: absolute;
-  .box {
-    width: vw(100);
-    height: vh(50);
-    background: $-ambient-robot-white-1;
-  }
-}

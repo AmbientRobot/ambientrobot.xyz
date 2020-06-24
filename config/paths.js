@@ -11,7 +11,7 @@
  * @Project: ambientrobot
  * @Filename: paths.js
  * @Last modified time: 2019-12-05T12:54:56+01:00
- * @Copyright: Ambient Robot 2019
+ * @Copyright: Ambient Robot 2020
  */
 
 'use strict';

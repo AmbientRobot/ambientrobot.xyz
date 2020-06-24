@@ -13,7 +13,7 @@
  * @Filename: App.js
  * @Last modified by:
  * @Last modified time: 2020-06-20T15:14:17+02:00
- * @Copyright: Ambient Robot 2019
+ * @Copyright: Ambient Robot 2020
  * ________________________________________________________
  * #######################################################
  */

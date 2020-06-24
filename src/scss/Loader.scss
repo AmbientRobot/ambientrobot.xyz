@@ -11,8 +11,8 @@
 // @Project: ambientrobot
 // @Filename: Loader.scss
 // @Last modified by:
-// @Last modified time: 2020-06-20T14:53:27+02:00
-// @Copyright: Ambient Robot 2019
+// @Last modified time: 2020-06-24T11:37:35+02:00
+// @Copyright: Ambient Robot 2020
 // ________________________________________________________
 // #######################################################
 //--| 1. Imports
@@ -41,10 +41,12 @@ h1 {
 
 //--| 4. Main
 .Loader {
+  width: 100%;
   @include verticalCenterAlign();
   background-color: $-ambient-robot-alpha-1;
   .LoaderContainer {
     .LoaderLogo {
+      width: 100%;
       path {
         stroke-dasharray: 491;
         stroke-dashoffset: 491;

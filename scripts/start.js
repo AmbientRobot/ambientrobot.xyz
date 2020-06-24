@@ -11,7 +11,7 @@
  * @Project: ambientrobot
  * @Filename: start.js
  * @Last modified time: 2019-06-30T08:28:37+02:00
- * @Copyright: Ambient Robot 2019
+ * @Copyright: Ambient Robot 2020
  * ________________________________________________________
  * #######################################################
  */

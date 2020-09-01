@@ -12,7 +12,7 @@
  * @Project: ambientrobot
  * @Filename: Home.js
  * @Last modified by:
- * @Last modified time: 2020-06-22T09:46:46+02:00
+ * @Last modified time: 2020-09-01T15:11:17+02:00
  * @Copyright: Ambient Robot 2020
  * ________________________________________________________
  * #######################################################
@@ -40,51 +40,81 @@ class Home extends Component {
   }
 
   componentDidMount = () => {
-    // Typed initialization
-    const options = {
+    // Typed initialization options.
+    const optionsInit = {
     	strings: ["Hello and welcome !", "I'm Ambient Robot", "Created by Morgan Chaleyssin", "a {(front.developper;)}"],
       typeSpeed: 50,
-      backSpeed: 25,
-      onComplete: this.typingAnimationsDone
+      backSpeed: 25
     };
-    this.typed = new Typed(this.element, options);
+    // Typed call.
+    this.typed = new Typed(this.element, optionsInit);
     this.typed.stop();
+    // Initialization for AboutMe section on click animations.
+    this.aboutMeTimeLine = gsap.timeline({paused: true});
+    this.aboutMeTimeLine.to("#AboutMeFirstSection", 0.5, { "opacity": 0 ,"display": "none" })
+    .to("#AboutMeSecondSection", 0.5, { "opacity": 1, "display": "block" }).reversed(true);
   }
 
   componentWillUnmount = () => {
     this.typed.destroy();
+    this.aboutMeTimeLine.destroy();
   }
 
   // Waiting for parent (Animations container) to pass the animation props.
   static getDerivedStateFromProps  = (nextProps, prevState) => nextProps.homeStartAnimation === prevState.startAnimation ? null : { startAnimation: nextProps.homeStartAnimation };
 
   componentDidUpdate() {
-    if (this.state.startAnimation) {
+    // If it's the first loading else skip all Home animations.
+    if (this.state.startAnimation && localStorage.getItem('init') !== "true") {
       // Start square animations.
-      this.startSquareAnimations();
+      this.startAboutMeAnimations();
       // Set localStorage variable to true for the next page loading.
       localStorage.setItem("init", "true");
+    } else {
+      this.startAboutMeAnimations(true);
     }
   }
 
-  startSquareAnimations = () => {
+  // Square, typed and opacity animations.
+  startAboutMeAnimations = (skip) => {
     var timeLine = gsap.timeline({
-      onComplete: this.startAboutMeAnimations
+      onComplete: this.aboutMeAnimationsDone()
     });
+
+    // If skipping all animations.
+    if (skip) {
+      // Destroy the first typed instance.
+      this.typed.destroy();
+      // Initialize the new one with only one string.
+      this.typed = new Typed(this.element, {
+        strings: ["a {(front.developper;)}"],
+        typeSpeed: 50
+      });
+    }
+
     timeLine.to(".HomeSquare", 2, { strokeDashoffset: 0 })
     .to(".HomeSquare", 1, { "fill-opacity": 1 })
     .to(".HomeSquare", 1, { "stroke-width": "1rem" })
     .to(".typed-cursor", 0, {visibility: "visible"})
     .add(() => this.typed.start())
-    .to(".HomeWelcome", 1, { "top": "20%" }, 15);
+    .to(".HomeWelcome", 1, { "top": "20%" }, 15)
+    .to(".AboutMe", 1, { "opacity": 1 });
+
+    // Set animation progress to final state if skipping.
+    if (skip) {
+      timeLine.progress(0.93, false);
+    }
   }
 
-  startAboutMeAnimations = () => {
-    var timeLine = gsap.timeline();
-    timeLine.to("article", 1, { "opacity": 1 });
+  aboutMeAnimationsDone = () => {
+
   }
 
-  typingAnimationsDone = () => {
+  clickAnimation = () => {
+    this.aboutMeTimeLine.reversed() ? this.aboutMeTimeLine.play() : this.aboutMeTimeLine.reverse();
+  }
+
+  hoverAnimation = () => {
 
   }
 
@@ -101,49 +131,86 @@ class Home extends Component {
               <div className="HomeWelcome">
                 <span style={{whiteSpace:'pre'}} ref={(element) => {this.element = element;}} />
               </div>
-              <article className="AboutMe">
+              <article id="AboutMe" className="AboutMe" onMouseEnter={this.hoverAnimation} onMouseLeave={this.hoverAnimation} onClick={this.clickAnimation}>
                 <div className="container-fluid">
                   <div className="row justify-content-end">
                     <div className="ProfilePhotoContainer col-sm-3">
                       <img className="ProfilePhoto" src={profilePhoto} alt=""></img>
                     </div>
-                    <div className="col-sm-8">
-                      <div className="row align-items-center">
-                        <div className="col-sm-12">
-                          <h1>Morgan Chaleyssin</h1>
+                    <div className="ProfileContentContainer col-sm-8">
+                      <div id="AboutMeFirstSection">
+                        <div className="row align-items-center">
+                          <div className="col-sm-12">
+                            <h1>Morgan Chaleyssin</h1>
+                          </div>
+                        </div>
+                        <div className="row align-items-center">
+                          <div className="col-sm-12">
+                            <h2>28 years old</h2>
+                          </div>
+                        </div>
+                        <div className="row align-items-center">
+                          <div className="col-sm-1">
+                            <FontAwesomeIcon className="FontAwesomeIcon" icon="home" />
+                          </div>
+                          <div className="col-sm-11">
+                            <p>Isère, France</p>
+                          </div>
+                        </div>
+                        <div className="row align-items-center">
+                          <div className="col-sm-1">
+                            <FontAwesomeIcon className="FontAwesomeIcon" icon="code" />
+                          </div>
+                          <div className="col-sm-11">
+                            <p>HTML, SASS, Bootstrap, Javascript, React, WordPress, Symfony</p>
+                          </div>
+                        </div>
+                        <div className="row align-items-center">
+                          <div className="col-sm-1">
+                            <FontAwesomeIcon className="FontAwesomeIcon" icon="music" />
+                          </div>
+                          <div className="col-sm-11">
+                            <p>Composer, pianist, gamer, streamer</p>
+                          </div>
                         </div>
                       </div>
-                      <div className="row align-items-center">
-                        <div className="col-sm-12">
-                          <h2>28 years old</h2>
+                      <div id="AboutMeSecondSection">
+                        <div className="row align-items-center">
+                          <div className="col-sm-12">
+                            <h1>Morgan Chaleyssin</h1>
+                          </div>
                         </div>
-                      </div>
-                      <div className="row align-items-center">
-                        <div className="col-sm-1">
-                          <FontAwesomeIcon className="FontAwesomeIcon" icon="home" />
+                        <div className="row align-items-center">
+                          <div className="col-sm-12">
+                            <h2>Strengths and Weaknesses</h2>
+                          </div>
                         </div>
-                        <div className="col-sm-11">
-                          <p>Isère, France</p>
+                        <div className="row align-items-center">
+                          <div className="col-sm-1">
+                            <FontAwesomeIcon className="FontAwesomeIcon" icon="plus" />
+                          </div>
+                          <div className="col-sm-11">
+                            <p>Conscientious, patient, calm, rigorous, creative, honest and respectful</p>
+                          </div>
                         </div>
-                      </div>
-                      <div className="row align-items-center">
-                        <div className="col-sm-1">
-                          <FontAwesomeIcon className="FontAwesomeIcon" icon="code" />
-                        </div>
-                        <div className="col-sm-11">
-                          <p>HTML, SASS, Bootstrap, Javascript, React, WordPress, Symfony</p>
-                        </div>
-                      </div>
-                      <div className="row align-items-center">
-                        <div className="col-sm-1">
-                          <FontAwesomeIcon className="FontAwesomeIcon" icon="music" />
-                        </div>
-                        <div className="col-sm-11">
-                          <p>Composer, pianist, gamer, streamer</p>
+                        <div className="row align-items-center">
+                          <div className="col-sm-1">
+                            <FontAwesomeIcon className="FontAwesomeIcon" icon="minus" />
+                          </div>
+                          <div className="col-sm-11">
+                            <p>Self-critical and sensitive, shy and perfectionist</p>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
+                  {/*<div className="row align-items-center justify-content-center">
+                    <div className="col-sm-12">
+                      <div id="LoadContentArrowContainer" className="LoadContentArrowContainer">
+                        <FontAwesomeIcon id="LoadContentArrow" className="LoadContentArrow FontAwesomeIcon" icon="angle-down" />
+                      </div>
+                    </div>
+                  </div>*/}
                 </div>
               </article>
             </section>

@@ -12,7 +12,7 @@
  * @Project: ambientrobot
  * @Filename: App.js
  * @Last modified by:
- * @Last modified time: 2020-06-20T15:14:17+02:00
+ * @Last modified time: 2020-09-01T13:30:49+02:00
  * @Copyright: Ambient Robot 2020
  * ________________________________________________________
  * #######################################################
@@ -21,7 +21,7 @@
 import React, { Component } from 'react';
 
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faHome, faCode, faMusic, faBriefcase } from '@fortawesome/free-solid-svg-icons';
+import { faHome, faCode, faMusic, faBriefcase, faAngleDown, faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import { faReact, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 import 'scss/App.scss';
@@ -29,7 +29,7 @@ import 'scss/App.scss';
 import Animations from 'js/containers/Animations/Animations';
 
 // Font Awesome library
-library.add(faHome, faCode, faMusic, faReact, faTwitter, faBriefcase);
+library.add(faHome, faCode, faMusic, faReact, faTwitter, faBriefcase, faAngleDown, faPlus, faMinus);
 
 class App extends Component {
   render() {

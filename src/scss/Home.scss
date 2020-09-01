@@ -11,7 +11,7 @@
 // @Project: ambientrobot
 // @Filename: Home.scss
 // @Last modified by:
-// @Last modified time: 2020-06-20T14:53:24+02:00
+// @Last modified time: 2020-09-01T15:13:11+02:00
 // @Copyright: Ambient Robot 2020
 // ________________________________________________________
 // #######################################################
@@ -87,6 +87,10 @@ $SVG-height:  60rem;
               width: 10rem;
             }
           }
+          .ProfileContentContainer {
+            width: 50rem;
+            height: 10rem;
+          }
           .FontAwesomeIcon {
             font-size: 1.5rem;
             color: $-ambient-robot-white-1;
@@ -95,11 +99,17 @@ $SVG-height:  60rem;
             font-size: 1.5rem;
             margin-bottom: 0;
           }
-          button {
-            font-size: 1.5rem;
-            color: $-ambient-robot-black-1;
-            background-color: $-ambient-robot-white-1;
-            border-color: $-ambient-robot-white-1;
+          .LoadContentArrowContainer {
+            border-color: rgba(255, 255, 255, 0);
+            @include textAlign(center);
+            .LoadContentArrow {
+              font-size: 2rem;
+              font-weight: normal;
+            }
+          }
+          #AboutMeSecondSection {
+            display: none;
+            opacity: 0;
           }
           @include verticalCenterAlign();
         }

@@ -12,7 +12,7 @@
  * @Project: ambientrobot
  * @Filename: Home.js
  * @Last modified by:
- * @Last modified time: 2020-09-01T15:11:17+02:00
+ * @Last modified time: 2020-09-02T16:21:47+02:00
  * @Copyright: Ambient Robot 2020
  * ________________________________________________________
  * #######################################################
@@ -97,7 +97,7 @@ class Home extends Component {
     .to(".HomeSquare", 1, { "stroke-width": "1rem" })
     .to(".typed-cursor", 0, {visibility: "visible"})
     .add(() => this.typed.start())
-    .to(".HomeWelcome", 1, { "top": "20%" }, 15)
+    .to(".HomeWelcome", 1, { "top": "25%" }, 15)
     .to(".AboutMe", 1, { "opacity": 1 });
 
     // Set animation progress to final state if skipping.
@@ -182,7 +182,7 @@ class Home extends Component {
                         </div>
                         <div className="row align-items-center">
                           <div className="col-sm-12">
-                            <h2>Strengths and Weaknesses</h2>
+                            <h2>Strengths and weaknesses</h2>
                           </div>
                         </div>
                         <div className="row align-items-center">

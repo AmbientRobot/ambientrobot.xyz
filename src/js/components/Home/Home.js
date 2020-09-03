@@ -12,7 +12,7 @@
  * @Project: ambientrobot
  * @Filename: Home.js
  * @Last modified by:
- * @Last modified time: 2020-09-02T16:21:47+02:00
+ * @Last modified time: 2020-09-03T15:46:07+02:00
  * @Copyright: Ambient Robot 2020
  * ________________________________________________________
  * #######################################################
@@ -182,23 +182,15 @@ class Home extends Component {
                         </div>
                         <div className="row align-items-center">
                           <div className="col-sm-12">
-                            <h2>Strengths and weaknesses</h2>
+                            <h2>About me</h2>
                           </div>
                         </div>
                         <div className="row align-items-center">
                           <div className="col-sm-1">
-                            <FontAwesomeIcon className="FontAwesomeIcon" icon="plus" />
+                            <FontAwesomeIcon className="FontAwesomeIcon" icon="smile" />
                           </div>
                           <div className="col-sm-11">
-                            <p>Conscientious, patient, calm, rigorous, creative, honest and respectful</p>
-                          </div>
-                        </div>
-                        <div className="row align-items-center">
-                          <div className="col-sm-1">
-                            <FontAwesomeIcon className="FontAwesomeIcon" icon="minus" />
-                          </div>
-                          <div className="col-sm-11">
-                            <p>Self-critical and sensitive, shy and perfectionist</p>
+                            <p>Conscientious, persevering, patient, calm, rigorous, sensitive, creative, self-critical, honest, respectful and perfectionist</p>
                           </div>
                         </div>
                       </div>
